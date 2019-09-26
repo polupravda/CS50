@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Individual Study Planner</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post" class="needs-validation" novalidate>
+
+        <div class="form-group">
+            <label for="className">Name of the class</label>
+            <input type="text" class="form-control" id="className" name="className" placeholder='E.g. "HTML for Beginners"' required>
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please enter the name of the class</div>
+        </div>
+        <div class="form-group">
+            <label for="classLink">Link to the resource</label>
+            <input type="text" class="form-control" id="classLink" name="classLink" placeholder='E.g. "html-for-beginners.com"' required>
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please enter the link to the resource</div>
+        </div>
+        <div class="form-group">
+            <label for="skillName">Skills</label>
+            <small class="form-text text-muted">Add skills you will get in this class</small>
+            <input type="text" class="form-control" id="skillName" name="skillName" placeholder='E.g. "HTML"'>
+        </div>
+        <div class="form-group">
+          <label class="my-1 mr-2" for="classTech">Technology</label>
+          <select class="custom-select my-1 mr-sm-2" name="classTech" id="classTech">
+            <option selected>Choose...</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="JS">JS</option>
+            <option value="Python">Python</option>
+            <option value="C">C</option>
+          </select>
+        </div>
+        <div class="custom-control custom-checkbox my-1 mr-sm-2">
+            <input type="checkbox" class="custom-control-input" id="classImportant" name="classImportant">
+            <label class="custom-control-label" for="classImportant">Mark this class as important</label>
+        </div>
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+
+    </script>
+
+{% endblock %}

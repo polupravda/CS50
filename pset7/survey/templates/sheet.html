@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div>
+        <h4>You have added the following courses:</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</td>
+                    <th scope="col">Link</td>
+                    <th scope="col">Tag</td>
+                    <th scope="col">Technology</td>
+                    <th scope="col">Importance</td>
+                </tr>
+                {% for class in classes %}
+                <tr>
+                    <td>{{ class["className"] }}</td>
+                    <td>{{ class["classLink"] }}</td>
+                    <td>{{ class["skillName"] }}</td>
+                    <td>{{ class["classTech"] }}</td>
+                    <td>{{ class["classImportant"] }}</td>
+                </tr>
+                {% endfor %}
+            </thead>
+        </table>
+    </div>
+{% endblock %}

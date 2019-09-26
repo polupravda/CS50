@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <select class="form-control" name="course" onchange="courseInfo(this.value);">
+      <option value="" disabled selected>Select course</option>
+      <option value="introduction">CS50's Introduction to Computer Science</option>
+      <option value="py_js">CS50's Web Programming with Python and JavaScript</option>
+      <option value="fundament">Learn to Program: The Fundamentals</option>
+    </select>
+
+    <div id="infodiv">
+        Infodiv
+    </div>
+
+{% endblock %}
